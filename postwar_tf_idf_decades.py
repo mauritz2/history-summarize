@@ -9,12 +9,10 @@ import nltk
 import numpy as np
 import re
 import sys
-import time
 import os
 import csv
 from nltk.corpus import stopwords
 from math import log
-from pprint import pprint
 from nltk.stem import WordNetLemmatizer
 
 lemmatizer = WordNetLemmatizer()
@@ -83,13 +81,14 @@ def preprocess(text):
 
 # Get DF
 for f in files:
+	# Finds the files a word exists and then turns that into a number using len() 
 	file = open(filepath + "\\" + f, 'r')
 	text = file.read()
 	file.close()
 	processed_text = preprocess(text)
 	
 	for word in processed_text:
-		# This setup ensures that a file can only be added once per word (DF)
+		# This if/else setup ensures that a file can only be added once per word (DF)
 		if word in DF:
 			DF[word].add(f)
 		else:
