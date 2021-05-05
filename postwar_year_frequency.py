@@ -14,7 +14,7 @@ pageNum = fileReader.getNumPages()
 all_years_dict = {}
 
 def clean_text(text):
-	# Removed unnecessary new lines that prevent sentence identification
+	# Removes unnecessary new lines that prevent sentence identification
 	text = text.replace("\n", "")
 	# Fix the hyphen character
 	text = text.replace("Š", " - ")
@@ -53,7 +53,7 @@ for i in range(pageNum):
 		# Unless we use int() here we get an index that contains both strings and integers and we can't visualuze
 		all_years_dict = update_dict(all_years_dict, int(match))
 
-	# Matches and adds the start of end years for mentioend ranges of years in format "1939-45" and "1914-1919"
+	# Matches and adds the start and end years for mentioend ranges of years in format "1939-45" and "1914-1919"
 	# The part after the ? forces the numbers after the hyphen to be 2 or 4 numbers (not 3)
 	# Otherwise it will match 3-digit page numbers that appear immediately after a valid year in two cases
 	# If there are four numbers after the hyphen we also make sure the year is during the 20th century
