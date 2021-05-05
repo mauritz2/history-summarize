@@ -21,12 +21,12 @@ def clean_text(text):
 file = open('postwar.pdf', 'rb')
 fileReader = PyPDF2.PdfFileReader(file)
 pageNum = fileReader.getNumPages()
-# Regex that matches the full sentence that a decade appear in format "1950s"
+# Regex that matches the full sentence that a decade appears in format "1950s"
 decade_regex = re.compile('[^.]*19[4-8]0s[^.]*\.')
 decade_dict = {}
 write_file = open("decade_sentences.txt", "w")
 for i in range(pageNum):
-	page = fileReader.getPage(i) #i
+	page = fileReader.getPage(i)
 	text = page.extractText()
 	text = clean_text(text)
 	matches = re.findall(decade_regex, text)
