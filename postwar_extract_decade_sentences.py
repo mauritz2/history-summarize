@@ -1,6 +1,6 @@
 '''
 Reads a PDF of the book Postwar by Tony Judt and outputs
-txt files with all sentences referening a deacade, e.g. "1950s"
+txt files with all sentences referencing a decade, e.g. "1950s"
 '''
 
 import PyPDF2
